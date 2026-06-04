@@ -6,9 +6,9 @@ workflows:
       xcode: latest
     scripts:
       - flutter pub get
-      - flutter build ios --release --no-codesign
+      - flutter build ios --debug --no-codesign --simulator
     artifacts:
-      - build/ios/iphoneos/Runner.app.zip
+      - build/ios/iphonesimulator/Runner.app.zip
     publishing:
       email:
         recipients:
