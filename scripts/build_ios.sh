@@ -1,12 +1,13 @@
 #!/bin/bash
 
-# iOS Build Script for Flutter
-# This script builds the Flutter app for iOS simulator or device
+# iOS Build Script for Flutter - Appetize Ready
+# This script builds the Flutter app for iOS simulator and creates a .zip file for Appetize
+# Appetize requires: .zip or .tar.gz containing a compressed .app bundle
 
 set -e
 
 echo "==================================="
-echo "Flutter iOS Build Script"
+echo "Flutter iOS Build Script (Appetize Ready)"
 echo "==================================="
 
 # Check if Flutter is installed
@@ -69,10 +70,11 @@ if [ -d "$APP_PATH/$APP_NAME" ]; then
     echo "📊 App Size:"
     du -sh "$APP_PATH/$APP_NAME"
     
-    # Step 6: Create zip for Appetize (if simulator build)
+    # Step 6: Create zip for Appetize (Appetize requires .zip or .tar.gz)
     if [ "$BUILD_TYPE" = "simulator" ]; then
         echo ""
-        echo "📦 Creating zip for Appetize..."
+        echo "📦 Creating Appetize-compatible .zip file..."
+        
         cd "$APP_PATH"
         
         # Remove existing zip if it exists
@@ -80,14 +82,37 @@ if [ -d "$APP_PATH/$APP_NAME" ]; then
             rm "$APP_NAME.zip"
         fi
         
+        # Create the zip file with the .app bundle inside
+        # This creates: Runner.app.zip containing Runner.app/
         zip -r "$APP_NAME.zip" "$APP_NAME" > /dev/null 2>&1
-        echo "✓ Zip created: $APP_PATH/$APP_NAME.zip"
+        
+        FULL_ZIP_PATH="$(pwd)/$APP_NAME.zip"
+        
+        echo "✓ Zip created: $FULL_ZIP_PATH"
         echo ""
         echo "📊 Zip Size:"
         du -sh "$APP_NAME.zip"
         echo ""
-        echo "🎉 Ready for Appetize! Upload: $APP_PATH/$APP_NAME.zip"
+        
+        # Verify zip contains the .app bundle
+        echo "📋 Zip contents:"
+        unzip -l "$APP_NAME.zip" | head -20
+        
+        echo ""
+        echo "🎉 Appetize Ready! File: $FULL_ZIP_PATH"
+        echo ""
+        echo "📤 Upload to Appetize:"
+        echo "1. Go to: https://appetize.io"
+        echo "2. Click 'Upload an app' or drag-and-drop"
+        echo "3. Upload: $FULL_ZIP_PATH"
+        echo "4. Wait for processing"
+        echo "5. Share the public link"
+        
         cd - > /dev/null
+    else
+        echo ""
+        echo "ℹ️  For device deployment, use Xcode:"
+        echo "   open ios/Runner.xcworkspace"
     fi
 else
     echo "❌ App bundle not found at: $APP_PATH/$APP_NAME"
@@ -99,9 +124,4 @@ echo ""
 echo "==================================="
 echo "✅ Build process completed!"
 echo "==================================="
-echo ""
-echo "📚 Next steps:"
-echo "1. For Appetize: Upload build/ios/iphonesimulator/Runner.app.zip"
-echo "2. For device testing: Use Xcode to deploy build/ios/iphoneos app"
-echo "3. View logs: flutter logs"
 echo ""
