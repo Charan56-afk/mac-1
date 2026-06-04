@@ -1,0 +1,30 @@
+﻿git : The term 'git' 
+is not recognized as 
+the name of a cmdlet, 
+function, script 
+file, or operable 
+program. Check the 
+spelling of the name, 
+or if a path was 
+included, verify that 
+the path is correct 
+and try again.
+At C:\flutter\src\flut
+ter\bin\internal\updat
+e_engine_version.ps1:5
+3 char:11
++ } elseif (git -C 
+"$flutterRoot" 
+ls-files bin/internal/
+engine.version) ...
++           ~~~
+    + CategoryInfo    
+          : ObjectNo  
+  tFound: (git:Stri   
+ ng) [], ParentCon    
+tainsErrorRecordE    
+xception
+    + FullyQualifiedE 
+   rrorId : CommandN  
+  otFoundException
+ 

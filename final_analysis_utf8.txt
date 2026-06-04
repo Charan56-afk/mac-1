@@ -1,0 +1,12 @@
+﻿Analyzing flutter_application_1...                              
+
+   info - Statements in an if should be enclosed in a block - lib\add_review_screen.dart:225:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\main.dart:682:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\main.dart:695:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\main.dart:1558:7 - curly_braces_in_flow_control_structures
+warning - The declaration '_launchShreyasBooking' isn't referenced - lib\main.dart:1878:16 - unused_element
+   info - Don't invoke 'print' in production code - lib\movie_details_screen.dart:50:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\movie_details_screen.dart:52:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\movie_details_screen.dart:55:7 - avoid_print
+   info - Statements in an if should be enclosed in a block - lib\movie_details_screen.dart:474:51 - curly_braces_in_flow_control_structures
+

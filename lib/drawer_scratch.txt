@@ -1,0 +1,622 @@
+  @override
+  Widget build(BuildContext context) {
+    final menuItems = [
+      _DrawerItem(
+        icon: Icons.person_rounded,
+        label: 'Profile',
+        gradient: [const Color(0xFF00F0FF), const Color(0xFF0055FF)],
+        onTap: () => _go(
+          context,
+          Scaffold(
+            backgroundColor: const Color(0xFF050510),
+            appBar: AppBar(
+              backgroundColor: Colors.transparent,
+              iconTheme: const IconThemeData(color: Colors.white),
+              title: Text(
+                'PROFILE',
+                style: GoogleFonts.outfit(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            body: const ProfileScreen(),
+          ),
+        ),
+      ),
+      _DrawerItem(
+        icon: Icons.bar_chart_rounded,
+        label: 'Statistics',
+        gradient: [const Color(0xFF00C896), const Color(0xFF00F0FF)],
+        onTap: () => _showSheet(context, const AnalyticsSheet()),
+      ),
+      _DrawerItem(
+        icon: Icons.manage_accounts_rounded,
+        label: 'Account',
+        gradient: [const Color(0xFF9D00FF), const Color(0xFFFF00FF)],
+        children: [
+          _DrawerSubItem(label: 'Personal Information', onTap: () => _go(context, const SimplePage(title: 'Personal Info', content: 'Update your email, phone number, and personal details.'))),
+          _DrawerSubItem(label: 'Password & Security', onTap: () => _go(context, const SimplePage(title: 'Security', content: 'Change password, two-factor authentication, and login activity.'))),
+          _DrawerSubItem(label: 'Verification Request', onTap: () => _go(context, const SimplePage(title: 'Verification', content: 'Apply for the coveted Platinum verification badge.'))),
+          _DrawerSubItem(label: 'Deactivation & Deletion', onTap: () => _confirmDelete(context)),
+        ],
+      ),
+      _DrawerItem(
+        icon: Icons.shield_rounded,
+        label: 'Privacy & Safety',
+        gradient: [const Color(0xFFFF0055), const Color(0xFFFF6B9D)],
+        children: [
+          _DrawerSubItem(label: 'Private Account', onTap: () => _go(context, const SimplePage(title: 'Private Account', content: 'When your account is private, only people you approve can see your posts.'))),
+          _DrawerSubItem(label: 'Blocked Users', onTap: () => _go(context, const SimplePage(title: 'Blocked Users', content: 'You have no blocked users.'))),
+          _DrawerSubItem(label: 'Story Privacy', onTap: () => _go(context, const SimplePage(title: 'Story Privacy', content: 'Control who can view or reply to your cinematic stories.'))),
+          _DrawerSubItem(label: 'Mentions & Tags', onTap: () => _go(context, const SimplePage(title: 'Mentions', content: 'Choose who can tag you in reviews and comments.'))),
+        ],
+      ),
+      _DrawerItem(
+        icon: Icons.notifications_rounded,
+        label: 'Notifications',
+        gradient: [const Color(0xFFFFD700), const Color(0xFFFF8C00)],
+        children: [
+          _DrawerSubItem(label: 'Push Notifications', onTap: () => _go(context, const SimplePage(title: 'Push Notifications', content: 'Configure alerts for likes, comments, and new trailers.'))),
+          _DrawerSubItem(label: 'Email Notifications', onTap: () => _go(context, const SimplePage(title: 'Email Notifications', content: 'Manage emails for weekly digests and security alerts.'))),
+          _DrawerSubItem(label: 'Quiet Mode', onTap: () => _go(context, const SimplePage(title: 'Quiet Mode', content: 'Mute push notifications during specific hours.'))),
+        ],
+      ),
+      _DrawerItem(
+        icon: Icons.display_settings_rounded,
+        label: 'Content & Display',
+        gradient: [const Color(0xFF00F0FF), const Color(0xFF00C896)],
+        children: [
+          _DrawerSubItem(label: 'Theme & Auto-play', onTap: () => _go(context, const _SettingsPage())),
+          _DrawerSubItem(label: 'Data Saver', onTap: () => _go(context, const SimplePage(title: 'Data Saver', content: 'Load lower resolution images and disable auto-play on cellular.'))),
+          _DrawerSubItem(label: 'Language', onTap: () => _go(context, const SimplePage(title: 'Language', content: 'English (US) - Default.'))),
+        ],
+      ),
+      _DrawerItem(
+        icon: Icons.help_rounded,
+        label: 'Help & About',
+        gradient: [const Color(0xFF4facfe), const Color(0xFF00f2fe)],
+        children: [
+          _DrawerSubItem(label: 'Help Center', onTap: () => _go(context, const SimplePage(title: 'Help Center', content: 'Need assistance? Email support@cinesocial.com.'))),
+          _DrawerSubItem(label: 'Report a Problem', onTap: () => _go(context, const SimplePage(title: 'Report Problem', content: 'Shake your phone to report a bug, or contact us directly.'))),
+          _DrawerSubItem(label: 'Terms of Service', onTap: () => _go(context, const SimplePage(title: 'Terms of Service', content: 'By using CineSocial, you agree to our community guidelines.'))),
+          _DrawerSubItem(label: 'Privacy Policy', onTap: () => _go(context, const SimplePage(title: 'Privacy Policy', content: 'We protect your data and never sell it to third parties.'))),
+        ],
+      ),
+    ];
+
+    return Drawer(
+      backgroundColor: Colors.transparent,
+      width: 290,
+      child: Container(
+        decoration: const BoxDecoration(color: Color(0xFF0A0A14)),
+        child: Column(
+          children: [
+            _buildHeader(context),
+            Container(
+              height: 1,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.transparent,
+                    Color(0xFF00F0FF),
+                    Colors.transparent,
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                padding: const EdgeInsets.fromLTRB(16, 14, 16, 8),
+                itemCount: menuItems.length,
+                itemBuilder: (ctx, i) => _buildMenuTile(ctx, menuItems[i]),
+              ),
+            ),
+            // Logout button
+            Container(
+              margin: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                gradient: LinearGradient(
+                  colors: [
+                    const Color(0xFFFF0055).withValues(alpha: 0.13),
+                    const Color(0xFFFF0055).withValues(alpha: 0.06),
+                  ],
+                ),
+                border: Border.all(
+                  color: const Color(0xFFFF0055).withValues(alpha: 0.35),
+                  width: 1,
+                ),
+              ),
+              child: Material(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(16),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(16),
+                  onTap: () => _logout(context),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 14,
+                    ),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 36,
+                          height: 36,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: const Color(0xFFFF0055).withValues(alpha: 0.15),
+                          ),
+                          child: const Icon(
+                            Icons.logout_rounded,
+                            color: Color(0xFFFF0055),
+                            size: 18,
+                          ),
+                        ),
+                        const SizedBox(width: 14),
+                        Text(
+                          'Log Out',
+                          style: GoogleFonts.outfit(
+                            color: const Color(0xFFFF0055),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15,
+                          ),
+                        ),
+                        const Spacer(),
+                        const Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          color: Color(0xFFFF0055),
+                          size: 14,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: Text(
+                'v1.0.0  •  CineSocial',
+                style: GoogleFonts.outfit(
+                  color: Colors.white24,
+                  fontSize: 11,
+                  letterSpacing: 1,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildHeader(BuildContext context) {
+    final imageProvider = CacheUtility.getAvatarProvider(
+      _avatarUrl.isNotEmpty ? _avatarUrl : null,
+    );
+
+    return GestureDetector(
+      onTap: () => _go(
+        context,
+        Scaffold(
+          backgroundColor: const Color(0xFF050510),
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            iconTheme: const IconThemeData(color: Colors.white),
+            title: Text(
+              'PROFILE',
+              style: GoogleFonts.outfit(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          body: const ProfileScreen(),
+        ),
+      ),
+      child: Container(
+        width: double.infinity,
+        padding: EdgeInsets.only(
+          top: MediaQuery.of(context).padding.top + 24,
+          left: 24,
+          right: 24,
+          bottom: 24,
+        ),
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xFF1A0035), Color(0xFF000D2E)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Brand pill
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                gradient: const LinearGradient(
+                  colors: [Color(0xFF00F0FF), Color(0xFFFF0055)],
+                ),
+              ),
+              child: Text(
+                'CINESOCIAL',
+                style: GoogleFonts.outfit(
+                  color: Colors.white,
+                  fontSize: 10,
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: 2,
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+
+            // Avatar with glow
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  width: 82,
+                  height: 82,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: const Color(0xFF00F0FF).withValues(alpha: 0.45),
+                        blurRadius: 22,
+                        spreadRadius: 4,
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 78,
+                  height: 78,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    gradient: LinearGradient(
+                      colors: [Color(0xFF00F0FF), Color(0xFFFF0055)],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                  ),
+                  padding: const EdgeInsets.all(3),
+                  child: ClipOval(
+                    child: Image(
+                      image: imageProvider,
+                      fit: BoxFit.cover,
+                      errorBuilder: (_, _, _) => Image.network(
+                        'https://i.pravatar.cc/150?img=12',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  right: 0,
+                  bottom: 0,
+                  child: Container(
+                    width: 16,
+                    height: 16,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: const Color(0xFF00C896),
+                      border: Border.all(
+                        color: const Color(0xFF0A0A14),
+                        width: 2.5,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 14),
+
+            // Name + verified
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    _name.isEmpty ? 'Loading...' : _name,
+                    style: GoogleFonts.outfit(
+                      fontSize: 19,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                if (_isVerified)
+                  const Padding(
+                    padding: EdgeInsets.only(left: 6),
+                    child: Icon(
+                      Icons.verified_rounded,
+                      color: Color(0xFF00F0FF),
+                      size: 18,
+                    ),
+                  ),
+              ],
+            ),
+            const SizedBox(height: 2),
+            Text(
+              _handle,
+              style: GoogleFonts.outfit(
+                color: Colors.white38,
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            const SizedBox(height: 8),
+
+            // Level badge
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 3,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    gradient: const LinearGradient(
+                      colors: [Color(0xFFFFD700), Color(0xFFFF8C00)],
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(
+                        Icons.star_rounded,
+                        color: Colors.white,
+                        size: 11,
+                      ),
+                      const SizedBox(width: 3),
+                      Text(
+                        'PLATINUM',
+                        style: GoogleFonts.outfit(
+                          color: Colors.white,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w900,
+                          letterSpacing: 1,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Text(
+                  'CineCinephile',
+                  style: GoogleFonts.outfit(
+                    color: Colors.white54,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+
+            // Stats
+            _statsLoading
+                ? Row(children: List.generate(3, (_) => _shimmerChip()))
+                : Row(
+                    children: [
+                      _statChip(_postsCount.toString(), 'Posts'),
+                      const SizedBox(width: 16),
+                      _statChip(_bookmarksCount.toString(), 'Saved'),
+                      const SizedBox(width: 16),
+                      _statChip(_followingCount.toString(), 'Following'),
+                    ],
+                  ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _statChip(String value, String label) => Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(
+        value,
+        style: GoogleFonts.outfit(
+          color: Colors.white,
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      Text(
+        label,
+        style: GoogleFonts.outfit(color: Colors.white38, fontSize: 10),
+      ),
+    ],
+  );
+
+  Widget _shimmerChip() => Padding(
+    padding: const EdgeInsets.only(right: 16),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          width: 28,
+          height: 16,
+          decoration: BoxDecoration(
+            color: Colors.white12,
+            borderRadius: BorderRadius.circular(4),
+          ),
+        ),
+        const SizedBox(height: 4),
+        Container(
+          width: 40,
+          height: 10,
+          decoration: BoxDecoration(
+            color: Colors.white12,
+            borderRadius: BorderRadius.circular(4),
+          ),
+        ),
+      ],
+    ),
+  );
+
+  Widget _buildMenuTile(BuildContext ctx, _DrawerItem item) {
+    final bool hasChildren = item.children != null && item.children!.isNotEmpty;
+
+    final headerChild = Row(
+      children: [
+        Container(
+          width: 40,
+          height: 40,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            gradient: LinearGradient(
+              colors: item.gradient,
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: item.gradient.first.withValues(alpha: 0.35),
+                blurRadius: 10,
+                offset: const Offset(0, 3),
+              ),
+            ],
+          ),
+          child: Icon(item.icon, color: Colors.white, size: 20),
+        ),
+        const SizedBox(width: 14),
+        Expanded(
+          child: Text(
+            item.label,
+            style: GoogleFonts.outfit(
+              color: Colors.white,
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ),
+        if (!hasChildren)
+          const Icon(
+            Icons.chevron_right_rounded,
+            color: Colors.white24,
+            size: 20,
+          ),
+      ],
+    );
+
+    if (hasChildren) {
+      return Container(
+        margin: const EdgeInsets.only(bottom: 6),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(14),
+          color: Colors.white.withValues(alpha: 0.04),
+        ),
+        child: Theme(
+          data: Theme.of(context).copyWith(
+            dividerColor: Colors.transparent,
+            splashColor: item.gradient.first.withValues(alpha: 0.15),
+            highlightColor: item.gradient.first.withValues(alpha: 0.08),
+          ),
+          child: ExpansionTile(
+            tilePadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
+            childrenPadding: const EdgeInsets.only(bottom: 8),
+            iconColor: Colors.white,
+            collapsedIconColor: Colors.white24,
+            title: headerChild,
+            children: item.children!.map((subItem) {
+              return Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  onTap: subItem.onTap,
+                  splashColor: item.gradient.first.withValues(alpha: 0.15),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    decoration: BoxDecoration(
+                      border: Border(
+                        left: BorderSide(
+                          color: item.gradient.first.withValues(alpha: 0.5),
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                    margin: const EdgeInsets.only(left: 34, right: 14, bottom: 4),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            subItem.label,
+                            style: GoogleFonts.outfit(
+                              color: Colors.white.withValues(alpha: 0.8),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                        const Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          color: Colors.white24,
+                          size: 12,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            }).toList(),
+          ),
+        ),
+      );
+    }
+
+    return Container(
+      margin: const EdgeInsets.only(bottom: 6),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(14),
+        color: Colors.white.withValues(alpha: 0.04),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(14),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(14),
+          onTap: item.onTap,
+          splashColor: item.gradient.first.withValues(alpha: 0.15),
+          highlightColor: item.gradient.first.withValues(alpha: 0.08),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+            child: headerChild,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ── Helper data classes ───────────────────────────────────────────────────────
+class _DrawerItem {
+  final IconData icon;
+  final String label;
+  final List<Color> gradient;
+  final VoidCallback? onTap;
+  final List<_DrawerSubItem>? children;
+
+  const _DrawerItem({
+    required this.icon,
+    required this.label,
+    required this.gradient,
+    this.onTap,
+    this.children,
+  });
+}
+
+class _DrawerSubItem {
+  final String label;
+  final VoidCallback onTap;
+
+  const _DrawerSubItem({
+    required this.label,
+    required this.onTap,
+  });
+}

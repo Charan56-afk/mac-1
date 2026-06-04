@@ -1,0 +1,8 @@
+Analyzing directors_cut_screen.dart...                          
+
+   info - Unnecessary use of multiple underscores - lib\directors_cut_screen.dart:291:59 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\directors_cut_screen.dart:305:61 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\directors_cut_screen.dart:305:65 - unnecessary_underscores
+  error - Expected to find ')' - lib\directors_cut_screen.dart:1720:6 - expected_token
+
+4 issues found. (ran in 4.4s)

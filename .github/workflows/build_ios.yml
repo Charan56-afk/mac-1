@@ -1,0 +1,42 @@
+name: Build iOS Simulator for Appetize.io
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  build-ios:
+    name: Build iOS Simulator App
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Install Dependencies
+        run: flutter pub get
+
+      - name: Build iOS Simulator App Bundle
+        run: |
+          flutter build ios --simulator --no-codesign
+
+      - name: Zip Simulator App Bundle for Appetize
+        run: |
+          cd build/ios/iphonesimulator
+          zip -r ios_simulator.zip Runner.app
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-simulator-build
+          path: build/ios/iphonesimulator/ios_simulator.zip
+          retention-days: 5

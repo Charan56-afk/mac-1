@@ -1,0 +1,8 @@
+warning - The value of the field '_generatedImageUrl' isn't used - lib\directors_cut_screen.dart:57:11 - unused_field
+info - The private field _klingCredits could be 'final' - lib\directors_cut_screen.dart:90:7 - prefer_final_fields
+info - 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor instead. This feature was deprecated after v3.31.0-2.0.pre - lib\directors_cut_screen.dart:1438:11 - deprecated_member_use
+info - Parameter 'key' could be a super parameter - lib\directors_cut_screen.dart:1477:9 - use_super_parameters
+info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\directors_cut_screen.dart:1584:50 - deprecated_member_use
+info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\directors_cut_screen.dart:1692:37 - deprecated_member_use
+info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\directors_cut_screen.dart:1709:29 - deprecated_member_use
+info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\directors_cut_screen.dart:1711:48 - deprecated_member_use

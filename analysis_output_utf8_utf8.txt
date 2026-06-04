@@ -1,0 +1,17 @@
+﻿Analyzing flutter_application_1...                              
+
+   info - The imported package 'webview_flutter' isn't a dependency of the importing package - lib\cinema_feed_screen.dart:4:8 - depend_on_referenced_packages
+  error - Target of URI doesn't exist: 'package:webview_flutter/webview_flutter.dart' - lib\cinema_feed_screen.dart:4:8 - uri_does_not_exist
+  error - Undefined class 'WebViewController' - lib\cinema_feed_screen.dart:298:14 - undefined_class
+  error - The method 'WebViewController' isn't defined for the type '_InstagramWebViewState' - lib\cinema_feed_screen.dart:311:19 - undefined_method
+  error - Undefined name 'JavaScriptMode' - lib\cinema_feed_screen.dart:313:27 - undefined_identifier
+  error - The method 'WebViewWidget' isn't defined for the type '_InstagramWebViewState' - lib\cinema_feed_screen.dart:325:18 - undefined_method
+   info - The import of 'dart:ui' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/material.dart' - lib\main.dart:4:8 - unnecessary_import
+   info - Don't invoke 'print' in production code - lib\main.dart:764:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\main.dart:780:7 - avoid_print
+   info - Don't use 'BuildContext's across async gaps - lib\main.dart:893:33 - use_build_context_synchronously
+warning - The declaration '_launchShreyasBooking' isn't referenced - lib\main.dart:1793:16 - unused_element
+   info - Don't invoke 'print' in production code - lib\movie_details_screen.dart:50:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\movie_details_screen.dart:52:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\movie_details_screen.dart:55:7 - avoid_print
+

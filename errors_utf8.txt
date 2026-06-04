@@ -1,0 +1,14 @@
+﻿
+  error - Expected to find ')' - lib\directors_cut_screen.dart:809:6 - expected_token
+  error - Expected a class member - lib\directors_cut_screen.dart:911:11 - expected_class_member
+  error - Expected a class member - lib\directors_cut_screen.dart:911:12 - expected_class_member
+  error - Expected a class member - lib\directors_cut_screen.dart:912:9 - expected_class_member
+  error - Expected a class member - lib\directors_cut_screen.dart:912:10 - expected_class_member
+  error - Expected a class member - lib\directors_cut_screen.dart:913:7 - expected_class_member
+  error - Expected a class member - lib\directors_cut_screen.dart:913:8 - expected_class_member
+  error - Expected a class member - lib\directors_cut_screen.dart:914:5 - expected_class_member
+  error - Expected a class member - lib\directors_cut_screen.dart:914:6 - expected_class_member
+  error - Expected a method, getter, setter or operator declaration - lib\directors_cut_screen.dart:916:1 - 
+expected_executable
+
+

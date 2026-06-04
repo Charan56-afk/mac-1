@@ -1,0 +1,270 @@
+{
+  "@@locale": "en",
+
+  "appName": "CineSocial",
+  "@appName": { "description": "Application name" },
+
+  "cinemaHub": "CINEMA HUB",
+  "@cinemaHub": { "description": "Home screen tab label" },
+
+  "industryBuzz": "INDUSTRY BUZZ",
+  "@industryBuzz": { "description": "Section header for industry news" },
+
+  "newMovieReviews": "NEW MOVIE REVIEWS",
+  "@newMovieReviews": { "description": "Section header for reviews" },
+
+  "viewAllReviews": "View All Reviews",
+  "@viewAllReviews": { "description": "Button to view all reviews" },
+
+  "forYou": "For You",
+  "@forYou": { "description": "CineFeed tab" },
+
+  "following": "Following",
+  "@following": { "description": "CineFeed following tab" },
+
+  "cineFeed": "CineFeed",
+  "@cineFeed": { "description": "Feed screen title" },
+
+  "cinemaHub2": "Cinema Hub",
+  "@cinemaHub2": { "description": "Nav tab label" },
+
+  "cineVerse": "CineVerse",
+  "@cineVerse": { "description": "Nav tab label" },
+
+  "noContentAvailable": "No content available right now.",
+  "@noContentAvailable": { "description": "Empty state message" },
+
+  "loading": "Loading...",
+  "@loading": { "description": "Generic loading text" },
+
+  "error": "Error",
+  "@error": { "description": "Generic error label" },
+
+  "tryAgain": "Try Again",
+  "@tryAgain": { "description": "Retry button" },
+
+  "cancel": "Cancel",
+  "@cancel": { "description": "Cancel button" },
+
+  "save": "Save",
+  "@save": { "description": "Save button" },
+
+  "delete": "Delete",
+  "@delete": { "description": "Delete button" },
+
+  "confirm": "Confirm",
+  "@confirm": { "description": "Confirm button" },
+
+  "logOut": "Log Out",
+  "@logOut": { "description": "Logout button" },
+
+  "profile": "Profile",
+  "@profile": { "description": "Profile menu item" },
+
+  "statistics": "Statistics",
+  "@statistics": { "description": "Statistics menu item" },
+
+  "account": "Account",
+  "@account": { "description": "Account settings section" },
+
+  "privacySafety": "Privacy & Safety",
+  "@privacySafety": { "description": "Privacy settings section" },
+
+  "notifications": "Notifications",
+  "@notifications": { "description": "Notifications settings section" },
+
+  "contentDisplay": "Content & Display",
+  "@contentDisplay": { "description": "Display settings section" },
+
+  "helpAbout": "Help & About",
+  "@helpAbout": { "description": "Help section" },
+
+  "settingsTitle": "SETTINGS",
+  "@settingsTitle": { "description": "Settings page title" },
+
+  "personalInfo": "Personal Information",
+  "@personalInfo": { "description": "Account sub-item" },
+
+  "passwordSecurity": "Password & Security",
+  "@passwordSecurity": { "description": "Account sub-item" },
+
+  "verificationRequest": "Verification Request",
+  "@verificationRequest": { "description": "Account sub-item" },
+
+  "deactivationDeletion": "Deactivation & Deletion",
+  "@deactivationDeletion": { "description": "Account sub-item" },
+
+  "privateAccount": "Private Account",
+  "@privateAccount": { "description": "Privacy toggle" },
+
+  "privateAccountDesc": "Only approved followers can see your posts",
+  "@privateAccountDesc": { "description": "Private account description" },
+
+  "blockedUsers": "Blocked Users",
+  "@blockedUsers": { "description": "Privacy sub-item" },
+
+  "storyPrivacy": "Story Privacy",
+  "@storyPrivacy": { "description": "Privacy sub-item" },
+
+  "mentionsTags": "Mentions & Tags",
+  "@mentionsTags": { "description": "Privacy sub-item" },
+
+  "pushNotifications": "Push Notifications",
+  "@pushNotifications": { "description": "Notifications toggle" },
+
+  "pushNotificationsDesc": "Alerts for likes, comments & followers",
+  "@pushNotificationsDesc": { "description": "Push notifications description" },
+
+  "emailNotifications": "Email Notifications",
+  "@emailNotifications": { "description": "Notifications toggle" },
+
+  "emailNotificationsDesc": "Weekly digest & security alerts",
+  "@emailNotificationsDesc": { "description": "Email notifications description" },
+
+  "quietMode": "Quiet Mode",
+  "@quietMode": { "description": "Quiet mode toggle" },
+
+  "quietModeDesc": "Mute all notifications during set hours",
+  "@quietModeDesc": { "description": "Quiet mode description" },
+
+  "darkMode": "Dark Mode",
+  "@darkMode": { "description": "Theme toggle" },
+
+  "darkModeDesc": "Switch between light and dark theme",
+  "@darkModeDesc": { "description": "Dark mode description" },
+
+  "autoPlayVideos": "Auto-play Videos",
+  "@autoPlayVideos": { "description": "Autoplay toggle" },
+
+  "autoPlayVideosDesc": "Automatically play trailers in feed",
+  "@autoPlayVideosDesc": { "description": "Autoplay description" },
+
+  "dataSaver": "Data Saver",
+  "@dataSaver": { "description": "Data saver toggle" },
+
+  "dataSaverDesc": "Reduce data usage on cellular networks",
+  "@dataSaverDesc": { "description": "Data saver description" },
+
+  "language": "Language",
+  "@language": { "description": "Language setting" },
+
+  "twoFactorAuth": "Two-Factor Authentication",
+  "@twoFactorAuth": { "description": "2FA toggle" },
+
+  "twoFactorAuthDesc": "Add an extra layer of security to your account",
+  "@twoFactorAuthDesc": { "description": "2FA description" },
+
+  "changePassword": "Change Password",
+  "@changePassword": { "description": "Change password item" },
+
+  "changePasswordDesc": "Update your account password",
+  "@changePasswordDesc": { "description": "Change password description" },
+
+  "deleteAccount": "Delete Account",
+  "@deleteAccount": { "description": "Delete account item" },
+
+  "deleteAccountDesc": "Permanently remove your account & data",
+  "@deleteAccountDesc": { "description": "Delete account description" },
+
+  "deleteAccountConfirm": "This is irreversible. All your posts, reviews and data will be permanently deleted.",
+  "@deleteAccountConfirm": { "description": "Delete account confirmation message" },
+
+  "noBlockedUsers": "No blocked users",
+  "@noBlockedUsers": { "description": "Empty blocked users message" },
+
+  "currentPassword": "Current Password",
+  "@currentPassword": { "description": "Password field label" },
+
+  "newPassword": "New Password",
+  "@newPassword": { "description": "Password field label" },
+
+  "confirmNewPassword": "Confirm New Password",
+  "@confirmNewPassword": { "description": "Password field label" },
+
+  "updatePassword": "Update Password",
+  "@updatePassword": { "description": "Button to update password" },
+
+  "passwordsDoNotMatch": "Passwords do not match",
+  "@passwordsDoNotMatch": { "description": "Validation error" },
+
+  "passwordUpdated": "Password updated successfully!",
+  "@passwordUpdated": { "description": "Success message" },
+
+  "quietHours": "Quiet Hours",
+  "@quietHours": { "description": "Quiet hours label" },
+
+  "start": "Start",
+  "@start": { "description": "Start time label" },
+
+  "end": "End",
+  "@end": { "description": "End time label" },
+
+  "everyone": "Everyone",
+  "@everyone": { "description": "Privacy option" },
+
+  "followersOnly": "Followers Only",
+  "@followersOnly": { "description": "Privacy option" },
+
+  "closeFriends": "Close Friends",
+  "@closeFriends": { "description": "Privacy option" },
+
+  "nobody": "Nobody",
+  "@nobody": { "description": "Privacy option" },
+
+  "preferences": "Preferences",
+  "@preferences": { "description": "Settings section header" },
+
+  "accountSecurity": "Account & Security",
+  "@accountSecurity": { "description": "Settings section header" },
+
+  "helpCenter": "Help Center",
+  "@helpCenter": { "description": "Help sub-item" },
+
+  "reportProblem": "Report a Problem",
+  "@reportProblem": { "description": "Help sub-item" },
+
+  "termsOfService": "Terms of Service",
+  "@termsOfService": { "description": "Help sub-item" },
+
+  "privacyPolicy": "Privacy Policy",
+  "@privacyPolicy": { "description": "Help sub-item" },
+
+  "platinum": "PLATINUM",
+  "@platinum": { "description": "User tier badge" },
+
+  "cineCinephile": "CineCinephile",
+  "@cineCinephile": { "description": "User rank label" },
+
+  "posts": "Posts",
+  "@posts": { "description": "Profile stat label" },
+
+  "saved": "Saved",
+  "@saved": { "description": "Profile stat label" },
+
+  "greetingMorning": "Good Morning, Cine Fan",
+  "@greetingMorning": { "description": "Morning greeting in hero section" },
+
+  "greetingAfternoon": "Good Afternoon, Cine Fan",
+  "@greetingAfternoon": { "description": "Afternoon greeting in hero section" },
+
+  "greetingEvening": "Good Evening, Cine Fan",
+  "@greetingEvening": { "description": "Evening greeting in hero section" },
+
+  "greetingNight": "Good Night, Cine Fan",
+  "@greetingNight": { "description": "Night greeting in hero section" },
+
+  "live": "LIVE",
+  "@live": { "description": "Live badge label" },
+
+  "watchTrailer": "Watch Trailer",
+  "@watchTrailer": { "description": "Button to watch trailer" },
+
+  "boxOfficeCollections": "BOX OFFICE COLLECTIONS",
+  "@boxOfficeCollections": { "description": "Section header for box office" },
+
+  "backendNotConnected": "Backend Not Connected",
+  "@backendNotConnected": { "description": "Error message when backend is offline" },
+
+  "startLocalServer": "Start local server to view featured movies",
+  "@startLocalServer": { "description": "Subtext for backend offline error" }
+}

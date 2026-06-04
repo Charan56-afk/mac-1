@@ -1,0 +1,11 @@
+﻿Analyzing flutter_application_1...                              
+
+   info - The import of 'dart:ui' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/material.dart' - lib\main.dart:4:8 - unnecessary_import
+   info - Don't invoke 'print' in production code - lib\main.dart:764:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\main.dart:780:7 - avoid_print
+   info - Don't use 'BuildContext's across async gaps - lib\main.dart:893:33 - use_build_context_synchronously
+warning - The declaration '_launchShreyasBooking' isn't referenced - lib\main.dart:1793:16 - unused_element
+   info - Don't invoke 'print' in production code - lib\movie_details_screen.dart:50:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\movie_details_screen.dart:52:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\movie_details_screen.dart:55:7 - avoid_print
+
